@@ -4,3 +4,8 @@
 
 #define PREVILLIGE               0
 #define UNPREVILLIGE           1
+
+
+
+
+void Switch_Level(char level);
