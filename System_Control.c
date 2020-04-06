@@ -1,6 +1,8 @@
 
 #include "System_Control.h"
 
+/*PLEASE NOTE THAT :  not all fruqencies are provided here in this version but the sample fruqencies here covers all branches
+                                      also note that I let the magic numbers here just to make it easier for you to understand the code*/
 void  SysControl(void)
 {
 	
@@ -10,16 +12,16 @@ void  SysControl(void)
 			switch(frequency)
 			{
 					/*if the internal OSC supports the choosen freq*/
-					case 16000000:
+					case FREQUENCY_16M:
 							RCC2 |= (1<<OSCSRC2_1) ;     			         /* 1  => internal oscillator*/
 					break;
 
-					case 4000000:
+					case FREQUENCY_4M:
 							RCC2 |= (1<<OSCSRC2_2) ;                 /* 2  => internal oscillator/4*/
 					break;
 
 					/*if the internal OSC dos'nt supports the choosen freq*/
-					case 44000000:
+					case FREQUENCY_44M:
 							RCC2 = 0;                                /* 0  => main oscillator */ 
 
 							RCC2 |= (1<<DIV400) ;          /* 0  => main oscillator*/ 
@@ -27,7 +29,7 @@ void  SysControl(void)
 							RCC2 |= (0x1F000000) & (0x03<<24);
 					break;
 
-					case 40000000:
+					case FREQUENCY_40M:
 							RCC2 = 0;                                 /* 0  => main oscillator */ 
 					
 							RCC2 |= (1<<DIV400) ;          /* 0  => main oscillator*/ 
