@@ -6,4 +6,3 @@
 
 
 
-void NVIC_init(void);
